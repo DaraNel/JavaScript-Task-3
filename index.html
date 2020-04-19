@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript Task 3</title>
+</head>
+<body>
+
+	<p>Set Number: 
+		<input value = 100 id = "number" type="number" name="">
+		<button onclick = "show()">Generate</button>
+	</p>
+
+	<p id = result></p>
+
+	<script type="text/javascript">
+		
+		function yu_gi_oh(number)	{
+
+			var start_time = new Date().getTime(); 
+
+			var arr = []; 
+			
+			for (var i = 1; i <= number; i++)	{
+
+				var str = "";
+
+				if (i % 2 == 0)	{ 
+					str += " yu ";
+				}
+
+				if (i % 3 == 0)	{ 
+					str += "- gi ";
+				}
+
+				if (i % 5 == 0)	{ 
+					str += "- oh";
+				}
+			
+				if ((i % 2 != 0) & (i % 3 != 0) & (i % 5 != 0))	{
+
+					str += i;
+
+					str = Number(str); 
+				}
+				
+				if (!(Number(str)) && str.charAt(0) == "-")	{
+
+					str = str.substring(1, str.length); 
+				}
+
+				arr.push(str); 
+
+			}
+			
+			return arr;
+
+		}
+
+		function show()	{
+
+			var number = Number(document.getElementById("number").value);
+
+			if (number < 1)	{
+
+				alert("This thing no be joke 0. Abeg enter correct number!");
+				return;
+			}
+
+			document.getElementById("result").innerHTML = "[" + yu_gi_oh(number) + "]";
+
+			return yu_gi_oh(number);
+			
+		}	
+
+		console.log(show());
+
+	</script>
+
+</body>
+</html>
